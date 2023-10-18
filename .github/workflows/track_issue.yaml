@@ -1,0 +1,9 @@
+name: Track issues
+on:
+  issues:
+    types: [opened, edited]
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ toJson(github) }}"

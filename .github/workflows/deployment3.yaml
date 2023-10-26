@@ -1,8 +1,15 @@
 name: Deployment3
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  push:
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "linting.."
   test:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: log
-        run: echo "{{ toJSON(github) }}"
+        run: echo "${{ toJSON(github) }}"
